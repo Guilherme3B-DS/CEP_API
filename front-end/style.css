@@ -1,0 +1,203 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cor-primaria: #2563eb;
+  --cor-primaria-escura: #1d4ed8;
+  --cor-texto: #1f2937;
+  --cor-texto-suave: #6b7280;
+  --cor-borda: #d1d5db;
+  --cor-erro: #dc2626;
+  --cor-sucesso: #16a34a;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--cor-texto);
+  background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 50%, #e0e7ff 100%);
+  min-height: 100vh;
+}
+
+.cep-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+.cep-card {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+}
+
+.cep-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #eff6ff;
+  color: var(--cor-primaria);
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.cep-subtitle {
+  font-size: 0.95rem;
+  color: var(--cor-texto-suave);
+  margin-bottom: 28px;
+}
+
+/* ---------- Formulário ---------- */
+
+.cep-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.campo-pequeno {
+  flex: 0 0 110px;
+}
+
+.linha {
+  display: flex;
+  gap: 12px;
+}
+
+.cep-form label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.cep-form input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  color: var(--cor-texto);
+  background: #ffffff;
+  border: 2px solid var(--cor-borda);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.cep-form input::placeholder {
+  color: #c0c4cc;
+}
+
+.cep-form input:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+/* Campo do CEP em destaque */
+.campo-cep input {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.campo-cep input:not(:placeholder-shown):valid {
+  border-color: var(--cor-sucesso);
+}
+
+.campo-cep input:not(:placeholder-shown):invalid {
+  border-color: var(--cor-erro);
+}
+
+/* Campos preenchidos (pela API ou pelo usuário) ganham um fundo suave */
+.cep-form input:not(:placeholder-shown):not(.campo-cep input) {
+  background: #f8fafc;
+}
+
+/* Mensagem de erro/aviso embaixo do CEP (preencha pelo JavaScript) */
+.mensagem {
+  min-height: 18px;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: var(--cor-erro);
+}
+
+.mensagem.sucesso {
+  color: var(--cor-sucesso);
+}
+
+/* Campo bloqueado enquanto a API consulta (opcional: adicione a classe "carregando" via JS) */
+.cep-form input.carregando {
+  background: #f1f5f9;
+  color: var(--cor-texto-suave);
+}
+
+/* ---------- Botão e link ---------- */
+
+.cep-form button {
+  margin-top: 8px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--cor-primaria);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.cep-form button:hover {
+  background: var(--cor-primaria-escura);
+}
+
+.cep-form button:active {
+  transform: scale(0.98);
+}
+
+.cep-link {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: var(--cor-primaria);
+  text-decoration: none;
+}
+
+.cep-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Celular ---------- */
+
+@media (max-width: 480px) {
+  .cep-card {
+    padding: 32px 20px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  .campo-pequeno {
+    flex: 0 0 90px;
+  }
+}

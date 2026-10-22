@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informe seu CEP</title>
+  <link rel="stylesheet" href="style.css">
+ 
+</head>
+<body>
+  <main class="cep-page">
+    <section class="cep-card">
+      <div class="cep-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"></path>
+          <circle cx="12" cy="10" r="2.5"></circle>
+        </svg>
+
+        
+      </div>
+ 
+      <p class="cep-subtitle">Digite o CEP e preenchemos o restante para você.</p>
+ 
+    <form class="cep-form" id="formulario">
+  <label>CEP:
+    <input name="cep" type="text" id="cep" maxlength="12" onblur="pesquisacep(this.value);" />
+  </label><br />
+  <label>Rua:
+    <input name="rua" type="text" id="rua" />
+  </label><br />
+  <label>Bairro:
+    <input name="bairro" type="text" id="bairro" />
+  </label><br />
+  <label>Cidade:
+    <input name="cidade" type="text" id="cidade" />
+  </label><br />
+  <label>Estado:
+    <input name="uf" type="text" id="uf" />
+  </label>
+</form>
+
+<br>
+
+<button type="button" style="background-color: #2563eb; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;" onclick="limparFormulario()">Confirmar</button>
+ 
+
+<script src="inicio.js"></script>
+    
+</body>
+</html>
